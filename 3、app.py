@@ -14,8 +14,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 已经为你填好了专属云端直链
-MODEL_URL = "https://github.com/Pluto-lyz/blessing-bomber/releases/download/v1.0/rose.glb"
+# 使用 jsDelivr CDN 完美解决跨域与加载失败问题
+MODEL_URL = "https://cdn.jsdelivr.net/gh/Pluto-lyz/blessing-bomber@v1.0/rose.glb"
 
 html_code = f"""
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ html_code = f"""
     </script>
 </head>
 <body>
-    <div id="loading">正在通过云端加载 3D 玫瑰模型...</div>
+    <div id="loading">正在通过 CDN 加载 3D 玫瑰模型...</div>
 
     <script type="module">
         import * as THREE from 'three';
@@ -124,7 +124,7 @@ html_code = f"""
 
             animate();
         }}, undefined, function(error) {{
-            document.getElementById('loading').innerText = "模型加载失败，请检查外链是否正确";
+            document.getElementById('loading').innerText = "模型加载失败，请检查网络";
             console.error(error);
         }});
 
